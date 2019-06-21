@@ -7,10 +7,9 @@ import org.testng.annotations.Test;
 
 public class OpenBrowserTest {
     @Test
-    public void testOpenBroswer() throws InterruptedException {
+    public void testOpenBroswer()  {
         WebDriver driver = WebDriverUtils.openBrowser(BrowserName.chrome);
         driver.get("http://www.baidu.com");
-
         WebDriverUtils.closeAll();
     }
 }

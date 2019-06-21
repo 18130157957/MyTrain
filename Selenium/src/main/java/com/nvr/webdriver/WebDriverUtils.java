@@ -3,9 +3,9 @@ package com.nvr.webdriver;
 import com.nvr.browserName.BrowserName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +20,6 @@ public class WebDriverUtils {
 
     /**
      * 浏览器操作
-     *
      * @param browserName
      * @return 浏览器驱动
      * @author lijinjin
@@ -31,6 +30,9 @@ public class WebDriverUtils {
         if (browserName.equals(BrowserName.chrome)) {
             driversPath = projectPath + "/drivers/chromedriver.exe";
             System.setProperty("webdriver.chrome.driver", driversPath);
+            ChromeOptions options = new ChromeOptions();
+            // 设置不显示“chrome正受到自动测试软件的控制”提示
+            options.addArguments("disable-infobars");
             driver = new ChromeDriver();
 
         } else if (browserName.equals(BrowserName.ie)) {
@@ -51,7 +53,6 @@ public class WebDriverUtils {
         //设置等待时间
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         // 窗口最大化
-
         driver.manage().window().maximize();
         return driver;
     }
