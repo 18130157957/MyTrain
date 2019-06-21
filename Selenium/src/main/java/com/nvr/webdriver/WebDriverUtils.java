@@ -4,6 +4,7 @@ import com.nvr.browserName.BrowserName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.util.Objects;
@@ -44,9 +45,9 @@ public class WebDriverUtils {
             driver = new FirefoxDriver();
 
         } else if (browserName.equals(BrowserName.edge)) {
-           /* driversPath = projectPath + "/drivers/MicrosoftWebDriver.exe";
+            driversPath = projectPath + "/drivers/MicrosoftWebDriver.exe";
             System.setProperty("webdriver.edge.driver", driversPath);
-            driver = new EdgeDriver();*/
+            driver = new EdgeDriver();
         } else {
             System.err.println("当前浏览器名称:" + browserName + "错误,\t请输入正确的浏览器名称");
         }
